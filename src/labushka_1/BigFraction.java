@@ -22,11 +22,7 @@ public class BigFraction {
 	
 	BigFraction (int fir,int sec){
 		
-		/**
-		* Конструктор класса
-		* @param fir Первыйд операнд
-		* @param sec Второй операнд
-		*/	
+	
 	
 		for(int i = 0; i < 100; i++){  //обнуление массивов для + -
 			temp_mass1[i]=0;
