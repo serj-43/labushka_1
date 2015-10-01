@@ -141,8 +141,9 @@ public class BigFraction {
 			temp=0;
 			 //сложение
 			for(int i = 0; i <= temp1+templ; i++){
-			temp_mass3[i]=(temp_mass4[j][i+j]+temp_mass4[j+1][i]+temp)%10; 
-    		temp=(temp_mass4[j][i+j]+temp_mass4[j+1][i]+temp)/10;
+			int k = temp_mass4[j][i+j]+temp_mass4[j+1][i]+temp;
+			temp_mass3[i]=k%10; 
+    		temp=k/10;
 		       	}
 			//перезапись промежуточного результата
 				for(int k = 0; k < temp1+templ; k++){
