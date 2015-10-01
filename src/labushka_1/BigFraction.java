@@ -203,8 +203,16 @@ public class BigFraction {
 
 		switch (select){ // выбор пункта меню
 		case 1:
+			boolean znak1 = znak;
+			if ((select==1)&
+					(
+							(first<0)&(second<0))|
+					((first<0)&(Math.abs(first)>second)&(second>0))|
+					((first>0)&(first<Math.abs(second))&(second<0))){
+				znak1=true;
+			}
 			//выставление знака операции сложения
-			znak = Logic1(znak, first, second, select);
+			znak = znak1;
 			//вычитание из большего
 			if (Math.abs(first)<Math.abs(second)) {
 				first=first+second;
@@ -224,8 +232,17 @@ public class BigFraction {
 					System.out.println(mas); 
 			break;
 		case 2:
+			boolean znak2 = znak;
+			boolean bool1 = (first<0)&(second>0)&(Math.abs(first)>second);
+			boolean bool2 = (first<0)&(second<0)&(first<second);
+			boolean bool3 = (first<0)&(second>0)&(Math.abs(first)<second);
+			boolean bool4 = (first>0)&(second>0)&(first<second);
+			
+			if (bool1|bool2|bool3|bool4){
+				znak2=true;
+			}
 			//выставление знака операции вычитания
-			znak = Logic2(znak, first, second);
+			znak = znak2;
 			//вычитание из большего
 			if (Math.abs(first)<Math.abs(second)) {
 				first=first+second;
@@ -306,37 +323,6 @@ public class BigFraction {
 			ii--;
 		}
 		return mas;
-	}
-
-
-
-
-
-	private static boolean Logic1(boolean znak, int first, int second, int select) {
-		if ((select==1)&
-				(
-						(first<0)&(second<0))|
-				((first<0)&(Math.abs(first)>second)&(second>0))|
-				((first>0)&(first<Math.abs(second))&(second<0))){
-			znak=true;
-		}
-		return znak;
-	}
-
-
-
-
-
-	private static boolean Logic2(boolean znak, int first, int second) {
-		boolean bool1 = (first<0)&(second>0)&(Math.abs(first)>second);
-		boolean bool2 = (first<0)&(second<0)&(first<second);
-		boolean bool3 = (first<0)&(second>0)&(Math.abs(first)<second);
-		boolean bool4 = (first>0)&(second>0)&(first<second);
-		
-		if (bool1|bool2|bool3|bool4){
-			znak=true;
-		}
-		return znak;
 	}
 }
 
